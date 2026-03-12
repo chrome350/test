@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Онбординг — приветствие</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="preload"
+    href="https://www.avito.st/s/common/assets/fonts/manrope/manrope-medium.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin="anonymous"
+  />
+  <style>
+    :root {
+      --bg-page: #ffffff;
+      --bg-hero: #050505;
+      --text-main: #050505;
+      --text-secondary: #4b4b4f;
+      --font-sans: "Manrope", system-ui, -apple-system, BlinkMacSystemFont,
+        "SF Pro Text", "Segoe UI", sans-serif;
+      --radius-hero: 48px;
+    }
+
+    @font-face {
+      font-family: "Manrope";
+      src: url("https://www.avito.st/s/common/assets/fonts/manrope/manrope-medium.woff2")
+        format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 15px;
+      background: var(--bg-page);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .page {
+      width: 100%;
+      height: 720px;
+      padding: 46px;
+    }
+
+    .page-inner {
+      width: 768px;
+      max-width: 100%;
+      margin: 0 auto;
+      height: 100%;
+    }
+
+    .hero {
+      width: 100%;
+      height: 720px;
+      background: #090909;
+      color: #ffffff;
+      border-radius: 124px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      margin: 0;
+      position: absolute;
+      width: 939.28px;
+      height: 582px;
+      left: 50%;
+      top: 47%;
+      transform: translate(-50%, -50%);
+      font-family: "Manrope_Cut_008", "Manrope", var(--font-sans);
+      font-style: normal;
+      font-weight: 800;
+      font-size: 163px;
+      line-height: 141px;
+      letter-spacing: -0.04em;
+      text-transform: lowercase;
+      color: #ffffff;
+    }
+
+    .hero-word {
+      position: absolute;
+      display: flex;
+      align-items: flex-end;
+      letter-spacing: -0.04em;
+      font-family: "Manrope_Cut_008", "Manrope", var(--font-sans);
+      font-style: normal;
+      font-weight: 800;
+      font-size: 163px;
+      line-height: 141px;
+      color: #ffffff;
+    }
+
+    .hero-word--privet {
+      width: 552px;
+      height: 141px;
+      left: 0;
+      top: 0;
+      font-size: 164px;
+    }
+
+    .hero-word--dobro {
+      width: 540px;
+      height: 141px;
+      left: 229.28px;
+      bottom: 294px;
+    }
+
+    .hero-word--pozhalovat {
+      width: 938.81px;
+      height: 141px;
+      left: 0.46px;
+      bottom: 147px;
+    }
+
+    .hero-word--v-komandu {
+      width: 791.48px;
+      height: 141px;
+      left: 147.34px;
+      bottom: 0;
+    }
+
+    .intro {
+      margin: 32px 0 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      max-width: 640px;
+    }
+
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-title {
+      margin: 0 0 24px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .access-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    .access-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .access-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: #050505;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .access-text-primary {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .access-text-secondary {
+      font-size: 15px;
+      line-height: 1.4;
+      color: #9b9ca0;
+    }
+
+    .info-section {
+      margin-top: 48px;
+    }
+
+    .info-list {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: #1d8ff2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .info-text-primary {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .info-text-secondary {
+      font-size: 15px;
+      line-height: 1.4;
+      color: #9b9ca0;
+    }
+
+    .lib-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .lib-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text-main);
+    }
+
+    .lib-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #9b9ca0;
+    }
+
+    .life-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 0;
+    }
+
+    .life-card {
+      background: #1a1a1a;
+      color: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 120px;
+    }
+
+    .life-card > div:first-child {
+      width: 334px;
+      max-width: 100%;
+    }
+
+    .life-card-title {
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    .life-card-desc {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: #a0a0a0;
+    }
+
+    .life-card-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .life-card-icon img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .calendar-wrapper {
+      margin-top: 16px;
+      padding: 16px 20px 20px;
+      border-radius: 32px;
+      background: #f4f4f5;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .calendar-header-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      font-size: 13px;
+      color: #86868b;
+    }
+
+    .calendar-header-cell {
+      text-align: left;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0;
+      font-size: 13px;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .calendar-day {
+      min-height: 120px;
+      background: #ffffff;
+      border-radius: 0;
+      padding: 8px 10px 0 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-left: 1px solid #e4e4e7;
+    }
+
+    .calendar-day:first-child {
+      border-left: none;
+    }
+
+    .calendar-event {
+      border-radius: 16px;
+      padding: 6px 8px;
+      font-size: 13px;
+      line-height: 1.3;
+    }
+
+    .calendar-event--pink {
+      background: #ffd2ec;
+    }
+
+    .calendar-event--violet {
+      background: #e1d8ff;
+    }
+
+    .calendar-event--blue {
+      background: #cfe8ff;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        padding: 24px;
+        height: auto;
+        min-height: 720px;
+      }
+
+      .page-inner {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero-title">
+        <span class="hero-word hero-word--privet">привет</span>
+        <span class="hero-word hero-word--dobro">добро</span>
+        <span class="hero-word hero-word--pozhalovat">пожаловать</span>
+        <span class="hero-word hero-word--v-komandu">в&nbsp;команду</span>
+      </h1>
+    </section>
+
+    <div class="page-inner">
+      <p class="intro">
+        Собрали для тебя удобную памятку о жизни дизайн‑департамента Авито и не только.
+        Пока ты дожидаешься доступов в Jira и Figma, подглядывай сюда.
+      </p>
+
+      <section class="section" aria-labelledby="access-title">
+        <h2 id="access-title" class="section-title">Доступы</h2>
+        <div class="access-list">
+          <div class="access-item">
+            <div class="access-icon" aria-hidden="true">
+              <img src="avito page/figma.svg" alt="" width="24" height="24" />
+            </div>
+            <div>
+              <div class="access-text-primary">Service Desk Base</div>
+              <div class="access-text-secondary">
+                оформление заявок — Figma, Boardmix и прочее
+              </div>
+            </div>
+          </div>
+          <div class="access-item">
+            <div class="access-icon" aria-hidden="true">
+              <img src="avito page/jira.svg" alt="" width="24" height="24" />
+            </div>
+            <div>
+              <div class="access-text-primary">Service Desk Tech</div>
+              <div class="access-text-secondary">
+                оформление заявок — Jira, Confluence и прочее
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section" aria-labelledby="info-title">
+        <h2 id="info-title" class="section-title">Основное про дизайн департамент</h2>
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <img src="avito page/confluence.svg" alt="" width="24" height="24" />
+            </div>
+            <div>
+              <div class="info-text-primary">
+                Документация продуктовых команд ведётся в Confluence
+              </div>
+              <div class="info-text-secondary">
+                изучи в первую очередь, как получишь доступы в Jira
+              </div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <img src="avito page/jira.svg" alt="" width="24" height="24" />
+            </div>
+            <div>
+              <div class="info-text-primary">
+                Дизайнеры, исследователи, редакторы живут в Jira
+              </div>
+              <div class="info-text-secondary">
+                в основном спринты длятся 2 недели, могут быть исключения
+              </div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" aria-hidden="true">
+              <img src="avito page/figma.svg" alt="" width="24" height="24" />
+            </div>
+            <div>
+              <div class="info-text-primary">Пространство в Figma</div>
+              <div class="info-text-secondary">
+                если не пришёл инвайт в первую неделю, пиши тимлиду
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="calendar-title">
+        <h2 id="calendar-title" class="section-title">Календарь</h2>
+        <p>
+          Регулярные события Дизайн департамента и Авито.
+        </p>
+
+        <div class="calendar-wrapper" aria-label="Пример недели мероприятий">
+          <div class="calendar-header-row">
+            <div class="calendar-header-cell">Пн</div>
+            <div class="calendar-header-cell">Вт</div>
+            <div class="calendar-header-cell">Ср</div>
+            <div class="calendar-header-cell">Чт</div>
+            <div class="calendar-header-cell">Пт</div>
+          </div>
+          <div class="calendar-grid">
+            <div class="calendar-day"></div>
+            <div class="calendar-day"></div>
+            <div class="calendar-day">
+              <div class="calendar-event calendar-event--pink">
+                День без встреч
+              </div>
+            </div>
+            <div class="calendar-day">
+              <div class="calendar-event calendar-event--violet">
+                Сансад
+              </div>
+              <div class="calendar-event calendar-event--blue">
+                Avito Live
+              </div>
+            </div>
+            <div class="calendar-day">
+              <div class="calendar-event calendar-event--blue">
+                Продуктовые демо
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Сансад — место, где мы знакомимся, регулярно делимся классными
+          кейсами и практиками.
+        </p>
+        <p>
+          Avito Live — последние новости и погружение в проекты, которые
+          реализуют по всему Авито.
+        </p>
+        <p>
+          Продуктовые демо — подведение итогов спринта, в основном в
+          Авито это часть процессов по умолчанию, но в некоторых командах может
+          отличаться.
+        </p>
+        <p>
+          День без встреч — в каждой команде индивидуально, но практика
+          классная, пользуйся.
+        </p>
+      </section>
+
+      <section class="section" aria-labelledby="lib-title">
+        <h2 id="lib-title" class="section-title">Полезные библиотеки и плагины</h2>
+        <ul class="lib-list">
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Всё для Design'23 – компоненты, токены, иконки, спецификации ДС</span>
+          </li>
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Platform Libs — шоурил всех экранов вертикалей и горизонталей</span>
+          </li>
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Comdes Illustrations — шоурил всех иллюстраций</span>
+          </li>
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Illustrations Guide — как заказать иллюстрацию</span>
+          </li>
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Characters — персонажи для иллюстраций</span>
+          </li>
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Akita Page Setup — плагин для генерации структуры файла с гайдами</span>
+          </li>
+          <li class="lib-item">
+            <span class="lib-icon" aria-hidden="true">
+              🔗
+            </span>
+            <span>Akita Image Plugin — загрузка изображений в dev среду из Фигмы</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" aria-labelledby="life-title">
+        <h2 id="life-title" class="section-title">Про жизнь дизайнеров</h2>
+        <div class="life-grid">
+          <article class="life-card">
+            <div>
+              <h3 class="life-card-title">Дизайн-департамент Авито</h3>
+              <p class="life-card-desc">про культуру, принципы, события</p>
+            </div>
+            <div class="life-card-icon" aria-hidden="true">
+              <img src="avito page/avito.svg" alt="" width="28" height="28" />
+            </div>
+          </article>
+          <article class="life-card">
+            <div>
+              <h3 class="life-card-title">Дизайн-система Akita</h3>
+              <p class="life-card-desc">про вёрстку, компоненты, библиотеки</p>
+            </div>
+            <div class="life-card-icon" aria-hidden="true">
+              <img src="avito page/st.svg" alt="" width="28" height="28" />
+            </div>
+          </article>
+          <article class="life-card">
+            <div>
+              <h3 class="life-card-title">Инхаус-студия Стилет</h3>
+              <p class="life-card-desc">про бренд, айдентику, иллюстрации</p>
+            </div>
+            <div class="life-card-icon" aria-hidden="true">
+              <img src="avito page/av.svg" alt="" width="28" height="28" />
+            </div>
+          </article>
+          <article class="life-card">
+            <div>
+              <h3 class="life-card-title">Горизонтали и Вертикали</h3>
+              <p class="life-card-desc">про устройство, синхронизацию, процессы</p>
+            </div>
+            <div class="life-card-icon" aria-hidden="true">
+              <img src="avito page/hv.svg" alt="" width="28" height="28" />
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
+
